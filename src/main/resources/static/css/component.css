@@ -1,0 +1,22 @@
+input{
+    border: 0.2px solid rgba(50, 50, 50, 0.8);;
+    border-radius: 3px;
+}
+
+.button{
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(50, 50, 50, 0.2);
+    cursor: pointer;
+
+
+   
+}
+
+.button:hover{
+    background-color: rgba(50, 50, 50, 0.5);
+}
+
+.button:active{
+    background-color: rgba(50, 50, 50, 0.7);
+}
