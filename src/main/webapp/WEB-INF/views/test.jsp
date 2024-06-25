@@ -19,9 +19,8 @@
 </head>
 <body>
     <%@ include file="./common/top_menu.jsp" %>
-    <H1>Index</H1>
-    <a href="/login">로그인</a>
-    <a href="/register">회원가입</a>
+    <H1>Only login user can be accepted</H1>
+    ${user} 님 환영합니다.
 
 </body>
 </html>

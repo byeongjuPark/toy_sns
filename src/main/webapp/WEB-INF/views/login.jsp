@@ -17,6 +17,7 @@
     <script src="../js/login.js"></script>
 </head>
 <body>
+    <%@ include file="./common/top_menu.jsp" %>
     <H1>로그인</H1>
     <div class="register-container">
         <div class="register-list-container">
@@ -28,7 +29,7 @@
             <div class="register-list-input"><input type="password" name="pw" id="pw"></div>
         </div>
         <div class="register-complete">
-            <div class="register-complete-button"><button class="button" id="loginBtn" type="button">가입하기</button></div>
+            <div class="register-complete-button"><button class="button" id="loginBtn" type="button">로그인</button></div>
         </div>
     </div>
 </body>

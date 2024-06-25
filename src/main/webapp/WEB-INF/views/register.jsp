@@ -17,6 +17,7 @@
     <script src="../js/register.js"></script>
 </head>
 <body>
+    <%@ include file="./common/top_menu.jsp" %>
     <H1>등록</H1>
     <div class="register-container">
         <div class="register-list-container">

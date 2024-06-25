@@ -33,7 +33,7 @@ function handleClick() {
         return;
     }
     
-    alert("회원가입 검사 로직 성공");
+    // alert("회원가입 검사 성공");
     check = true;
     // 통신부
 
@@ -49,18 +49,18 @@ function handleClick() {
             success: function(res) {
                 if(res.code === "fa"){
                     alert("중복되는 아이디입니다.");
-                } else {
+                } else if(res.code === "su"){
                     $.ajax({
-                        url: "/api/register",
+                        url: "api/register",
                         type: "POST",
                         data: {
-                            "id": id,
-                            "pw": pw,
-                            "gener" : gener,
+                            'id':id,
+                            'pw':pw,
+                            'gener':generSelectedValue,
                         },
-                        success: function(res) {
-                            console.log(res);
+                        success: function(res){
                             //alert(res.code);
+                            window.location.assign('/');
                         }
                     });
                 }

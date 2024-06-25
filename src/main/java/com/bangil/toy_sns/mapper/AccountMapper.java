@@ -1,5 +1,6 @@
 package com.bangil.toy_sns.mapper;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -12,10 +13,16 @@ import java.util.HashMap;
 
 @Mapper
 public interface AccountMapper {
+
+    @Insert("INSERT INTO accounts values(tmp_seq.NEXTVAL, #{id}, #{pw}, #{sex})")
+    void insertAccount(Account user);
+
     @Select("SELECT * FROM accounts")
     List<Account> findAll();
 
     @Select("SELECT * FROM accounts")
     ArrayList<HashMap<String, Object>> findAllByMap();
+
+   
 }
 

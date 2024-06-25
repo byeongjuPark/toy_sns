@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bangil.toy_sns.domain.Account;
@@ -17,9 +19,21 @@ import com.bangil.toy_sns.mapper.AccountMapper;
 public class AccountServiceImp implements AccountService{
     private final AccountMapper accountMapper;
 
-    public AccountServiceImp(AccountMapper accountMapper){
-        this.accountMapper= accountMapper;
+    AccountServiceImp(AccountMapper accountMapper){
+        this.accountMapper = accountMapper;
     }
+
+
+    @Override
+    public void insertAccount(Account user) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String pw = user.getPw();
+        String encodedPw = encoder.encode(pw);
+
+        user.setPw(encodedPw);
+        accountMapper.insertAccount(user);
+    }
+
 
 
     @Override

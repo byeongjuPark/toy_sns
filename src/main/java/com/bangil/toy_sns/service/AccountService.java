@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 
 public interface AccountService {
+    public void insertAccount(Account user);
     public List<Account> findAll();
     public ArrayList<HashMap<String, Object>> findAllByMap();
 }

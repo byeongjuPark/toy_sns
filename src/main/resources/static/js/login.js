@@ -7,7 +7,7 @@ function handleClick() {
         return;
     }
 
-    alert("로그인 검사 로직 성공");
+    //alert("로그인 검사 로직 성공");
     // 통신부
 
     $.ajax({
@@ -17,9 +17,15 @@ function handleClick() {
             "id": id,
             "pw": pw,
         },
-        success: function(result) {
-            $("#message").text(result);
-            alert("ss");
+        success: function(res) {
+            if(res.code === "su"){
+                //alert("로그인 성공");
+                //sessionStorage.setItem('token', 'Bearer ' + res.token);
+                window.location.assign('/');
+                
+            } else if(res.code === "fa"){
+                alert("로그인 실패");
+            }
         }
     });
 

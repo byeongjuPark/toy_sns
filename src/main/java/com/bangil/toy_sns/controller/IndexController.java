@@ -19,13 +19,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bangil.toy_sns.domain.Account;
 import com.bangil.toy_sns.service.AccountService;
+import com.bangil.toy_sns.util.JwtProvider;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 
 @Controller
 public class IndexController {
-
 
     //private DataSource dataSource;
     private final AccountService accountService;
@@ -33,6 +34,7 @@ public class IndexController {
     public IndexController(AccountService accountService){
         this.accountService = accountService;
     }
+
 
 	
 	// @Autowired
@@ -79,9 +81,13 @@ public class IndexController {
         return mv;
     }
     
-    @GetMapping("/home")
-    public String home() {
-        return "index"; 
+    @GetMapping("/test")
+    public ModelAndView test(ModelAndView mv, HttpSession session) {
+        JwtProvider jwtProvider = new JwtProvider();
+        String token = session.getAttribute("token").toString().substring(7);
+        String userName = jwtProvider.validate(token);
+        mv.addObject("user", userName);
+        mv.setViewName("test");
+        return mv; 
     }
-    
 }
