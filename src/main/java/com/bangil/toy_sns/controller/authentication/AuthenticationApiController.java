@@ -20,8 +20,6 @@ import com.bangil.toy_sns.service.authentication.AuthenticationService;
 import com.bangil.toy_sns.util.JwtProvider;
 
 import jakarta.servlet.http.HttpSession;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 
 @RestController
@@ -51,7 +49,7 @@ public class AuthenticationApiController {
             String token = jwtProvider.create(id);
             session.setAttribute("token", "bearer " + token);
             result.put("code", "su");
-            result.put("token", token);
+            //result.put("token", token);
         } else {
             result.put("code", "fa");
         }
