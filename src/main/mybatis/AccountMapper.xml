@@ -5,6 +5,6 @@
 
 <mapper namespace="com.example.demo.mapper.AccountMapper">
     <select id="findAll" resultType="com.example.demo.dto.account">
-        SELECT * FROM accounts
+        SELECT * FROM account
     </select>
 </mapper> -->

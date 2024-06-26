@@ -1,0 +1,179 @@
+--------------------------------------------------------
+--  ������ ������ - ������-6��-26-2024   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence TMP_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "C##PBJ2577"."TMP_SEQ"  MINVALUE 1 MAXVALUE 1000 INCREMENT BY 1 START WITH 15 NOCACHE  NOORDER  CYCLE  NOKEEP  NOSCALE  GLOBAL ;
+--------------------------------------------------------
+--  DDL for Table ACCOUNT
+--------------------------------------------------------
+
+  CREATE TABLE "C##PBJ2577"."ACCOUNT" 
+   (	"SEQ" NUMBER(*,0), 
+	"ID" VARCHAR2(30 BYTE), 
+	"PW" VARCHAR2(100 BYTE), 
+	"SEX" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+
+   COMMENT ON COLUMN "C##PBJ2577"."ACCOUNT"."PW" IS 'encryption';
+   COMMENT ON COLUMN "C##PBJ2577"."ACCOUNT"."SEX" IS 'male/female
+';
+--------------------------------------------------------
+--  DDL for Table BOARD
+--------------------------------------------------------
+
+  CREATE TABLE "C##PBJ2577"."BOARD" 
+   (	"BOARD_SEQ" NUMBER(*,0), 
+	"WRITER_SEQ" NUMBER(*,0), 
+	"CONTENT" NVARCHAR2(2000), 
+	"LIKE_COUNT" NUMBER(*,0), 
+	"WRITE_DATE" DATE, 
+	"FILE_EXISTED" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+
+   COMMENT ON COLUMN "C##PBJ2577"."BOARD"."FILE_EXISTED" IS '1:yes 0:no';
+--------------------------------------------------------
+--  DDL for Table BOARD_COMMENT
+--------------------------------------------------------
+
+  CREATE TABLE "C##PBJ2577"."BOARD_COMMENT" 
+   (	"BOARD_COMMENT_SEQ" NUMBER(*,0), 
+	"CONTENT" NVARCHAR2(20), 
+	"COMMENT_WRITER" NUMBER(*,0), 
+	"COLUMN1" DATE
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table BOARD_LIKE
+--------------------------------------------------------
+
+  CREATE TABLE "C##PBJ2577"."BOARD_LIKE" 
+   (	"BOARD_SEQ" NUMBER(*,0), 
+	"ACCOUNT_SEQ" NUMBER(*,0)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+REM INSERTING into C##PBJ2577.ACCOUNT
+SET DEFINE OFF;
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (9,'id4','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (4,'id4','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (6,'id4','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (7,'id4','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (8,'id4','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (1,'pbj2577','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (2,'id2','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (3,'id2','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (5,'id2','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (10,'id4','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (11,'id4','pw2','info');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (13,'pbj2567','$2a$10$JUgmU5cIewlOiT0prf.0x.LXkaRnp0IurVNRH8FPQvMY34r5h.bzy','male');
+Insert into C##PBJ2577.ACCOUNT (SEQ,ID,PW,SEX) values (14,'pej2577','$2a$10$mS/59BAkVhfge1Y8vl6QqOdDInrW5S12GQkgJ02y6S8.fCOXihLWy','male');
+REM INSERTING into C##PBJ2577.BOARD
+SET DEFINE OFF;
+REM INSERTING into C##PBJ2577.BOARD_COMMENT
+SET DEFINE OFF;
+REM INSERTING into C##PBJ2577.BOARD_LIKE
+SET DEFINE OFF;
+--------------------------------------------------------
+--  DDL for Index ACCOUNT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##PBJ2577"."ACCOUNT_PK" ON "C##PBJ2577"."ACCOUNT" ("SEQ") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index ACCOUNT_UK1
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##PBJ2577"."ACCOUNT_UK1" ON "C##PBJ2577"."ACCOUNT" ("ID", "SEQ") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index BOARD_COMMENT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##PBJ2577"."BOARD_COMMENT_PK" ON "C##PBJ2577"."BOARD_COMMENT" ("BOARD_COMMENT_SEQ") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index BOARD_LIKE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##PBJ2577"."BOARD_LIKE_PK" ON "C##PBJ2577"."BOARD_LIKE" ("BOARD_SEQ", "ACCOUNT_SEQ") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index BOARD_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "C##PBJ2577"."BOARD_PK" ON "C##PBJ2577"."BOARD" ("BOARD_SEQ") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table ACCOUNT
+--------------------------------------------------------
+
+  ALTER TABLE "C##PBJ2577"."ACCOUNT" MODIFY ("SEQ" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."ACCOUNT" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."ACCOUNT" MODIFY ("PW" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."ACCOUNT" MODIFY ("SEX" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."ACCOUNT" ADD CONSTRAINT "ACCOUNT_PK" PRIMARY KEY ("SEQ")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "C##PBJ2577"."ACCOUNT" ADD CONSTRAINT "ACCOUNT_UK1" UNIQUE ("ID", "SEQ")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table BOARD_LIKE
+--------------------------------------------------------
+
+  ALTER TABLE "C##PBJ2577"."BOARD_LIKE" MODIFY ("BOARD_SEQ" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."BOARD_LIKE" MODIFY ("ACCOUNT_SEQ" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."BOARD_LIKE" ADD CONSTRAINT "BOARD_LIKE_PK" PRIMARY KEY ("BOARD_SEQ", "ACCOUNT_SEQ")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table BOARD_COMMENT
+--------------------------------------------------------
+
+  ALTER TABLE "C##PBJ2577"."BOARD_COMMENT" MODIFY ("BOARD_COMMENT_SEQ" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."BOARD_COMMENT" ADD CONSTRAINT "BOARD_COMMENT_PK" PRIMARY KEY ("BOARD_COMMENT_SEQ")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table BOARD
+--------------------------------------------------------
+
+  ALTER TABLE "C##PBJ2577"."BOARD" MODIFY ("WRITER_SEQ" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."BOARD" MODIFY ("LIKE_COUNT" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."BOARD" MODIFY ("WRITE_DATE" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."BOARD" MODIFY ("BOARD_SEQ" NOT NULL ENABLE);
+  ALTER TABLE "C##PBJ2577"."BOARD" ADD CONSTRAINT "BOARD_PK" PRIMARY KEY ("BOARD_SEQ")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;

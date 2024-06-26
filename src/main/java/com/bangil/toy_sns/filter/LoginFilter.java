@@ -41,6 +41,7 @@ public class LoginFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession(false); // 세션이 없으면 null 반환
+        
         if(session == null || session.getAttribute("token") == null){
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
             return;
@@ -49,7 +50,12 @@ public class LoginFilter implements Filter {
         JwtProvider jwtProvider = new JwtProvider();
         
         String token = session.getAttribute("token").toString().substring(7);
-        String userName = jwtProvider.validate(token);
+        String userName = jwtProvider.validate(token); // 유효하지 않은 토큰은 null 반환
+
+        if(userName == null){
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+            return;
+        }
 
         if (session != null) {
             
@@ -59,13 +65,13 @@ public class LoginFilter implements Filter {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                 return;
             } else if(resultUser.size() == 1){
-                // JWT 유효성 확인
                 if(!resultUser.get(0).getId().equals(userName)){
                     httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                     return;
-                } else{
-                    httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
-                    return;
+                } 
+                else{
+                    // 로그인 검증 완료 후 다음 필터로 전달
+                    chain.doFilter(request, response);
                 }
                 
             }

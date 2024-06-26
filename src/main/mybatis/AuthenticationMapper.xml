@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.demo.mapper.AuthenticationMapper">
     <select id="findById" parameterType="String" resultType="com.example.demo.dto.account">
-        SELECT * FROM accounts 
+        SELECT * FROM account 
         WHERE id = #{id}
     </select>
 </mapper> -->

@@ -11,6 +11,6 @@ import com.bangil.toy_sns.domain.Account;
 @Mapper
 public interface AuthenticationMapper {
 
-    @Select("SELECT * FROM accounts where id = '${id}'")
+    @Select("SELECT * FROM account where id = '${id}'")
     List<Account> findById(String id);
 }

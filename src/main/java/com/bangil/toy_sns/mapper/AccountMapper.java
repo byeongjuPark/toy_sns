@@ -14,13 +14,13 @@ import java.util.HashMap;
 @Mapper
 public interface AccountMapper {
 
-    @Insert("INSERT INTO accounts values(tmp_seq.NEXTVAL, #{id}, #{pw}, #{sex})")
+    @Insert("INSERT INTO account values(tmp_seq.NEXTVAL, #{id}, #{pw}, #{sex})")
     void insertAccount(Account user);
 
-    @Select("SELECT * FROM accounts")
+    @Select("SELECT * FROM account")
     List<Account> findAll();
 
-    @Select("SELECT * FROM accounts")
+    @Select("SELECT * FROM account")
     ArrayList<HashMap<String, Object>> findAllByMap();
 
    

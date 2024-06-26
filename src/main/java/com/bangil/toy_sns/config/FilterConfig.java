@@ -19,6 +19,7 @@ public class FilterConfig {
         FilterRegistrationBean<LoginFilter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new LoginFilter(authenticationService));
         registrationBean.addUrlPatterns("/test/*"); // 필터를 적용할 URL 패턴 설정
+        registrationBean.addUrlPatterns("/board/*");
         return registrationBean;
     }
 }
