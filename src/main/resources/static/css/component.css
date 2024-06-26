@@ -8,9 +8,6 @@ input{
     border-radius: 3px;
     background-color: rgba(50, 50, 50, 0.2);
     cursor: pointer;
-
-
-   
 }
 
 .button:hover{
@@ -20,3 +17,4 @@ input{
 .button:active{
     background-color: rgba(50, 50, 50, 0.7);
 }
+

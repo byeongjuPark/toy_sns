@@ -24,7 +24,12 @@
             <div class="edit_board-list-input"><textarea type="text" name="id" id="id"></textarea></div>
         </div>
         <div class="edit_board-complete">
-            <div class="edit_board-complete-button"><button class="button" id="completeBtn" type="button">💾 사진첨부</button></div>
+            <div class="edit_board-complete-button">
+                <label for="file">
+                    <div class="btn-upload">💾 사진첨부</div>
+                </label>
+                <input type="file" name="file" id="file">
+            </div>
             <div class="edit_board-complete-button"><button class="button" id="completeBtn" type="button">✅ 작성완료</button></div>
         </div>
         

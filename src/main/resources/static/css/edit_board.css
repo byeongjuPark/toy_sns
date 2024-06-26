@@ -60,3 +60,34 @@ textarea{
     resize: none;
     background-color: rgba(168, 168, 168, 0.3);
 }
+
+.uploadImage{
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(50, 50, 50, 0.2);
+    cursor: pointer;
+}
+
+.btn-upload {
+    border: none;
+    border-radius: 3px;
+
+    padding-block: 1px;
+    padding-inline: 8px;
+    text-rendering: auto;
+
+    font-size: 13.5px;
+    background: rgba(50, 50, 50, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background: rgba(50, 50, 50, 0.5);
+      color: #fff;
+    }
+  }
+  
+  #file {
+    display: none;
+  }
