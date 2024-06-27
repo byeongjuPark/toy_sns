@@ -20,19 +20,21 @@
     <H1>글 작성</H1>
     <%@ include file="./common/top_menu.jsp" %>
     <div class="edit_board-container">
-        <div class="edit_board-list-container">
-            <div class="edit_board-list-input"><textarea type="text" name="id" id="id"></textarea></div>
-        </div>
-        <div class="edit_board-complete">
-            <div class="edit_board-complete-button">
-                <label for="file">
-                    <div class="btn-upload">💾 사진첨부</div>
-                </label>
-                <input type="file" name="file" id="file">
+        <form id="uploadForm" action="/board" method="POST" enctype="multipart/form-data" >
+            <div class="edit_board-list-container">
+                <div class="edit_board-list-input"><textarea type="text" name="content" id="content"></textarea></div>
             </div>
-            <div class="edit_board-complete-button"><button class="button" id="completeBtn" type="button">✅ 작성완료</button></div>
-        </div>
-        
+            <div id="image_container"></div>
+            <div class="edit_board-complete">
+                <div class="edit_board-complete-button">
+                    <label for="file">
+                        <div class="btn-upload">💾 사진첨부</div>
+                    </label>
+                    <input type="file" name="file" id="file" onchange="setThumbnail(event);">
+                </div>
+                <div class="edit_board-complete-button"><button class="button" id="completeBtn" type="button">✅ 작성완료</button></div>
+            </div>
+        </form>
     </div>
 </body>
 </html>

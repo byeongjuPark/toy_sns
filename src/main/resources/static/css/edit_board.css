@@ -67,6 +67,10 @@ textarea{
     background-color: rgba(50, 50, 50, 0.2);
     cursor: pointer;
 }
+.image_container{
+    border: 1px solid red;
+    height: 20px;
+}
 
 .btn-upload {
     border: none;
@@ -91,3 +95,5 @@ textarea{
   #file {
     display: none;
   }
+
+  
