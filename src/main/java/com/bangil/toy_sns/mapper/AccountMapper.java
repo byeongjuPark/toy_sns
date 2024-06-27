@@ -23,6 +23,9 @@ public interface AccountMapper {
     @Select("SELECT * FROM account")
     ArrayList<HashMap<String, Object>> findAllByMap();
 
+    @Select("SELECT seq FROM account WHERE ID = #{id}")
+    int findSeqById(String id);
+
    
 }
 

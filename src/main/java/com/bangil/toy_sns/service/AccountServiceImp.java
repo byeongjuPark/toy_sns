@@ -46,4 +46,8 @@ public class AccountServiceImp implements AccountService{
         return accountMapper.findAllByMap();
     }
     
+    @Override
+    public int findSeqById(String id){
+        return accountMapper.findSeqById(id);
+    }
 }
