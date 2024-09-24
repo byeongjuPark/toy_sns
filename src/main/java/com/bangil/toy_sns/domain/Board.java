@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Board {
-    Long boardSeq;
+    int boardSeq;
     int writerSeq;
     String content;
     int likeCount;

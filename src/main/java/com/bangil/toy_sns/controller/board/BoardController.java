@@ -67,19 +67,19 @@ public class BoardController {
         // 2. content
         // 3. 파일 유무
         Board board = new Board();
-        board.setBoardSeq((long)0);
+        board.setBoardSeq(0);
         board.setLikeCount(0);
         board.setWriteDate("");
         
         board.setContent(content);
         board.setFileExisted(fileExisted);
         board.setWriterSeq(userSeq);
-        Long boardSeq = boardService.addBoard(board);
+        int boardSeq = boardService.addBoard(board);
 
         // file db에 들어갈 정보
         // 1. 실제 파일 경로
         // 2. 파일 오리진 이름
-        // 3. 게시글 번호
+        // 3. 게시글 번호 (다시 가져와야 하는데...)
         
         // 파일 존재 시 인서트
         if(!file.isEmpty()){

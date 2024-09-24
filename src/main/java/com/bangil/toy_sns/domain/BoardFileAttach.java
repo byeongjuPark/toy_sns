@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class BoardFileAttach {
-    Long boardSeq;
+    int boardSeq;
     String originalFileName;
     String filePath;
 }

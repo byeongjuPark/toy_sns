@@ -9,10 +9,10 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 public class FileUploader {
-    private String UPLOADED_FOLDER = "C:\\temp\\";
+    private String UPLOADED_FOLDER = System.getProperty("user.dir") + "/src/main/resources/files/";
 
     public String upload(MultipartFile file, String addPath) {
-        String folderPath = UPLOADED_FOLDER + addPath + "\\";
+        String folderPath = UPLOADED_FOLDER + addPath + "/";
         String uuid = UUID.randomUUID().toString();
         
         String fileExtension = file.getOriginalFilename().split("\\.")[1];

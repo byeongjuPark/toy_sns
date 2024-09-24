@@ -14,7 +14,7 @@ import java.util.HashMap;
 @Mapper
 public interface AccountMapper {
 
-    @Insert("INSERT INTO account values(tmp_seq.NEXTVAL, #{id}, #{pw}, #{sex})")
+    @Insert("insert into account (id, pw, sex) values (#{id}, #{pw}, #{sex})")
     void insertAccount(Account user);
 
     @Select("SELECT * FROM account")
@@ -26,6 +26,5 @@ public interface AccountMapper {
     @Select("SELECT seq FROM account WHERE ID = #{id}")
     int findSeqById(String id);
 
-   
 }
 

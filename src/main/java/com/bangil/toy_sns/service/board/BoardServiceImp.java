@@ -15,9 +15,9 @@ public class BoardServiceImp implements BoardService{
     }
 
     @Override
-    public Long addBoard(Board board) {
+    public int addBoard(Board board) {
         boardMapper.insertBoard(board);
-        Long boardSeq = board.getBoardSeq();
+        int boardSeq = boardMapper.insertBoard(board);
         System.err.println();
         return boardSeq;
     }
